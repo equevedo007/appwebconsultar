@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: ADELGADO
+  Date: 5/06/12
+  Time: 17:40
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:form id="frmMenu">
+		<p:panelMenu style="width: 172px; font-size: smaller;">
+
+
+			<p:submenu label="Persona Natural" style="width: 170px;">
+				
+
+				<p:menuitem value="Consultar Cliente" action="consultarCliente"
+					ajax="false" icon="ui-icon-newwin" />
+
+				
+			</p:submenu>
+
+			<p:submenu label="Persona Juridica" style="width: 170px;">
+
+				<p:menuitem value="Consultar Empresa"
+					action="consultarCliente" icon="ui-icon-newwin" ajax="false" />
+
+			</p:submenu>
+
+		</p:panelMenu>
+
+	</h:form>
+
+</f:view>

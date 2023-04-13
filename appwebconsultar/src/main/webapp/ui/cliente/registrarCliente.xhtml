@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/Master.xhtml"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="contenido">
+
+		<h:form id="frmRegistrar">
+			<p:panel id="panelPrincipal" header="Registro de Cliente">
+
+				<p:growl id="growl" showDetail="true" sticky="true" />
+
+
+				<p:panelGrid columns="4" cellpadding="5">
+
+					<p:outputLabel value="Primer Nombre" />
+					<p:inputText id="Primer_Nombre"
+						value="#{clienteManaged.objClienteBean.nombre1}" />
+
+					<p:outputLabel value="Segundo Nombre" />
+					<p:inputText value="#{clienteManaged.objClienteBean.nombre2}" />
+
+					<p:outputLabel value="Apellido Paterno" />
+					<p:inputText id="Apellido_Paterno"
+						value="#{clienteManaged.objClienteBean.apellidop}" />
+
+					<p:outputLabel value="Apellido Materno" />
+					<p:inputText id="Apellido_Materno"
+						value="#{clienteManaged.objClienteBean.apellidom}" />
+
+					<p:outputLabel for="DNI" value="DNI" />
+					<p:inputText id="DNI" value="#{clienteManaged.objClienteBean.dni}" maxlength="8" 
+						label="DNI" >
+
+					</p:inputText>
+					
+					
+
+
+
+					<p:outputLabel for="german" value="Fecha Nacimiento" />
+					<p:calendar id="german" value="#{clienteManaged.fechaNacimiento}"
+						locale="de" navigator="true" pattern="dd-MM-yyyy"
+						label="Fecha de Nacimiento" />
+
+					<p:outputLabel for="estado_civil" value="Estado Civil" />
+					
+					<p:selectOneMenu id="estado_civil"
+						value="#{clienteManaged.objClienteBean.estadoCivil}"
+						label="Estado Civil" style="width:130px">
+						<f:selectItem itemLabel="-Seleccione-" itemValue="-Seleccione-" />
+						<f:selectItem itemLabel="Soltero" itemValue="Soltero" />
+						<f:selectItem itemLabel="Casado" itemValue="Casado" />
+						<f:selectItem itemLabel="Divorciado" itemValue="Divorciado" />
+						<f:selectItem itemLabel="Conviviente" itemValue="Conviviente" />
+						<f:selectItem itemLabel="Viudo" itemValue="Viudo" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="Sexo" value="Sexo" />
+
+					<p:selectOneMenu id="Sexo"
+						value="#{clienteManaged.objClienteBean.sexo}" label="Sexo"
+						style="width:130px">
+						<f:selectItem itemLabel="-Seleccione-" itemValue="-Seleccione-" />
+						<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+						<f:selectItem itemLabel="Femenino" itemValue="Femenino" />
+					</p:selectOneMenu>
+
+
+					<p:outputLabel value="Ocupación" />
+					<p:inputText value="#{clienteManaged.objClienteBean.ocupacion}" />
+
+					<p:outputLabel value="Celular" />
+					<p:inputText value="#{clienteManaged.objClienteBean.celular}" />
+
+
+					<p:outputLabel value="Teléfono" />
+					<p:inputText value="#{clienteManaged.objClienteBean.telefono}" />
+
+					<p:outputLabel value="E-mail." />
+					<p:inputText value="#{clienteManaged.objClienteBean.correo}" />
+				</p:panelGrid>
+			</p:panel>
+			<p:keyFilter for="DNI" mask="num"/>
+			<p:panel id="PanelDireccion" header="Dirección de Cliente">
+
+				<p:panelGrid columns="2" cellpadding="5">
+
+					<p:outputLabel for="Departamento" value="Departamento"
+						style="width:360px" /> 
+
+					<p:selectOneMenu id="Departamento" 
+						value="#{clienteManaged.cod_dep}"  label="Departamento"  
+						style="width:260px" >
+						<f:selectItem itemLabel="-Seleccione-" itemValue="" />						
+						<f:selectItems value="#{clienteManaged.selectItemoneDepartamento}" 	 />
+						<p:ajax update="Provincia" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="Provincia" value="Provincia"  />
+					
+					<p:selectOneMenu id="Provincia"
+						value="#{clienteManaged.cod_pro}" style="width:260px"   label="Provincia">
+						<f:selectItem itemLabel="-Seleccione-" itemValue=""/>
+						<f:selectItems value="#{clienteManaged.selectItemoneProvincia}"  />
+						<p:ajax update="Distrito"/>
+					</p:selectOneMenu>
+
+
+					<p:outputLabel  value="Distrito" />
+
+					<p:selectOneMenu id="Distrito"
+						value="#{clienteManaged.objClienteBean.idUbigeo}" style="width:260px"   >
+						<f:selectItem itemLabel="-Seleccione-" itemValue=""/>
+						<f:selectItems value="#{clienteManaged.selectItemoneDistrito}"  />
+						<p:ajax update="Distrito"/>
+					</p:selectOneMenu>
+					
+				</p:panelGrid>
+				<p:panelGrid columns="2">
+
+					<p:outputLabel for="Direccion" value="Dirección" />
+					<p:inputText id="Direccion"
+						value="#{clienteManaged.objClienteBean.direccion}"
+						label="Dirección" style="width:360px" />
+
+					<p:outputLabel value="Referencia" />
+					<p:inputText value="#{clienteManaged.objClienteBean.referencia}"
+						style="width:360px" />
+				</p:panelGrid>
+
+
+				<p:commandButton value="Registar Cliente"
+					action="#{clienteManaged.RegistrarCliente}"
+					update="panelPrincipal,PanelDireccion,growl" />
+
+			</p:panel>
+
+			<p:dialog modal="true" resizable="false" header="Values"
+				widgetVar="dlg" showEffect="fold">
+				<p:panelGrid id="display" columns="2" columnClasses="label,value">
+
+					<h:outputText value="german" />
+					<h:outputText
+						value="#{clienteManaged.objClienteBean.fechNac}">
+						<f:convertDateTime pattern="dd-mm-yyyy" />
+					</h:outputText>
+
+
+				</p:panelGrid>
+			</p:dialog>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

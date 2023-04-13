@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#ui#general#login.xhtml"
+    NAME="output" PATH="/ui/general/login.xhtml"
+    TARGET="rules:#ui#general#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bienvenida::#ui#general#bienvenida.xhtml"
+    NAME="output1" PATH="/ui/general/bienvenida.xhtml"
+    TARGET="rules:#ui#general#bienvenida.xhtml" TITLE="bienvenida" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="consultarCliente::#ui#cliente#consultarCliente.xhtml"
+    NAME="output2" PATH="/ui/cliente/consultarCliente.xhtml"
+    TARGET="rules:#ui#cliente#consultarCliente.xhtml"
+    TITLE="consultarCliente" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ui#general#bienvenida.xhtml"
+  PATH="/ui/general/bienvenida.xhtml" SHAPE="224,152,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ui#general#login.xhtml"
+  PATH="/ui/general/login.xhtml" SHAPE="232,40,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ui#cliente#consultarCliente.xhtml"
+  PATH="/ui/cliente/consultarCliente.xhtml" SHAPE="252,235,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
+</PROCESS>
