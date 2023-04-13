@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 import javax.faces.bean.ManagedBean;
-
+//Edinson Ismael Quevedo Holguin
 @ManagedBean(name="login")
 public class LoginManaged implements Serializable{
 

@@ -8,7 +8,7 @@ import com.itsolutioncompany.consultartercero.servicio.ServicioPersonaNatural;
 
 
 public class test {
-
+	//Edinson Ismael Quevedo Holguin
 	public static void main(String[] args) throws Exception  {
 		
 		List<PersonaNaturalBean> lista = new ArrayList<PersonaNaturalBean>();

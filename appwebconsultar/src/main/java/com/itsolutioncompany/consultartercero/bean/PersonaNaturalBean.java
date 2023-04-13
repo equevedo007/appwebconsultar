@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class PersonaNaturalBean implements Serializable{
 	
-	
+	//Edinson Ismael Quevedo Holguin
 	private static final long serialVersionUID = 1L;
 	
 	private int idclientepropuestosnatural;
