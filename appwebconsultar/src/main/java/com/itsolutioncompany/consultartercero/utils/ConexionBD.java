@@ -12,8 +12,8 @@ public class ConexionBD {
 	//public static final String URL="jdbc:mysql://localhost:3306/opticasanhilarion";	
 	public static final String usuario="root";
 	
-	//public static final String clave="P@ssw0rd";
-	public static final String clave="P@ssw0rdUPC202202";
+	public static final String clave="P@ssw0rd";
+	//public static final String clave="P@ssw0rdUPC202202";
 	
 	public  Connection getConeccionBD(){
 		
